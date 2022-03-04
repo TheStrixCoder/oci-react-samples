@@ -96,6 +96,9 @@ function App() {
       var data = {"description": description, "done": done};
       return fetch(API_LIST+"/"+id, {
         method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify(data)
       })
       .then(response => {
@@ -151,6 +154,9 @@ function App() {
       fetch(API_LIST, {
         method: 'POST',
         // We convert the React state to JSON and send it as the POST body
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify(data)
       }).then((response) => {
         // This API doens't return a JSON document
